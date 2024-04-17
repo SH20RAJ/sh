@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400&display=swap");
+:root {
+  --x: 50%;
+  --y: 50%;
+  --size: 35vmin;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  background-color: black;
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: none;
+  overflow: hidden;
+  /*
+  cursor: none;
+  */
+}
+body {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  font-family: "Lexend", serif;
+  text-align: center;
+  line-height: 1;
+  color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  position: relative;
+}
+h1 {
+  font-size: clamp(25px, 8vw, 50px);
+}
+p {
+  color: white;
+}
+#flashlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  isolation: isolate;
+  pointer-events: none;
+}
+#bg,
+#bg_mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(https://source.unsplash.com/psdV2Rl-GvU) no-repeat center /
+    cover;
+  pointer-events: none;
+}
+#bg {
+  filter: brightness(0.8);
+}
+#bg_mask {
+  --light: 1;
+  -webkit-mask-image: radial-gradient(
+    circle var(--size) at var(--x) var(--y),
+    black,
+    rgba(0, 0, 0, 0)
+  );
+          mask-image: radial-gradient(
+    circle var(--size) at var(--x) var(--y),
+    black,
+    rgba(0, 0, 0, 0)
+  );
+  filter: brightness(var(--light));
+  -webkit-animation: flash 1.5s ease-in-out infinite;
+          animation: flash 1.5s ease-in-out infinite;
+  mix-blend-mode: overlay;
+}
+@-webkit-keyframes flash {
+  from {
+    --light: 5;
+  }
+  to {
+    --light: 1;
+  }
+}
+@keyframes flash {
+  from {
+    --light: 5;
+  }
+  to {
+    --light: 1;
+  }
+}
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
