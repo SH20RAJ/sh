@@ -35,14 +35,21 @@ import { useState, useEffect } from "react";
 
 
 export function Main() {
-  const [mode, setMode] = useState(localStorage.getItem("theme") || "dark");
+  const [mode, setMode] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("theme") || "dark";
+    }
+    return "dark"; // Default to dark theme if localStorage is not available
+  });
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", mode === "dark");
-    localStorage.setItem("theme", mode);
+    if (typeof window !== "undefined") {
+      document.documentElement.classList.toggle("dark", mode === "dark");
+      localStorage.setItem("theme", mode);
+    }
   }, [mode]);
 
-  const toggle = () => setMode(mode === "dark" ? "light" : "dark");
+  const toggle = () => setMode((prevMode) => (prevMode === "dark" ? "light" : "dark"));
 
   return (
     (        <ContextMenu>
