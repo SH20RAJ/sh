@@ -35,24 +35,15 @@ import { useState, useEffect } from "react";
 
 
 export function Main() {
-  const [mode, setMode] = useState(() => {
-    const storedTheme = localStorage.getItem("theme");
-    return storedTheme || (document.documentElement.classList.contains("dark") ? "dark" : "light");
-  });
+  const [mode, setMode] = useState(localStorage.getItem("theme") || "dark");
 
   useEffect(() => {
-    if (mode === "dark") {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
+    document.documentElement.classList.toggle("dark", mode === "dark");
+    localStorage.setItem("theme", mode);
   }, [mode]);
 
-  const toggle = () => {
-    setMode((prevMode) => (prevMode === "dark" ? "light" : "dark"));
-  };
+  const toggle = () => setMode(mode === "dark" ? "light" : "dark");
+
   return (
     (        <ContextMenu>
   <ContextMenuTrigger>
@@ -98,7 +89,7 @@ export function Main() {
                   View Resume
                 </Link>
                 <Link
-                  className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200  bg-white px-6 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
+                  className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200  bg-white px-6 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
                   href="https://x.com/sh20raj">
                   Contact Me
                 </Link>
@@ -119,7 +110,7 @@ export function Main() {
           </div>
         </section>
         <section
-          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
+          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-950"
           id="about">
           <div className="container px-4 md:px-6 grid gap-8">
             <div className="space-y-4 text-center">
@@ -238,7 +229,7 @@ export function Main() {
           </div>
         </section>
         <section
-          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
+          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-950"
           id="skills">
           <div className="container px-4 md:px-6 grid gap-8">
             <div className="space-y-4 text-center">
