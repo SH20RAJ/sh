@@ -85,7 +85,7 @@ export function Main() {
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48" id="hero">
           <div className="container px-4 md:px-6 grid gap-8 lg:grid-cols-2 items-center">
             <div className="space-y-4 text-center lg:text-left">
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Hi, I'm SH RAJ</h1>
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Hi, I'm Sh Raj</h1>
               <p className="text-gray-500 md:text-xl dark:text-gray-400">
                 I'm a passionate full-stack developer with expertise in modern web technologies.
               </p>
