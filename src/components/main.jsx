@@ -32,6 +32,7 @@ import {
   ContextMenuTrigger,
 } from "@/components/ui/context-menu"
 import { useState, useEffect } from "react";
+import "@/components/animate.css"
 
 
 export function Main() {
@@ -85,7 +86,7 @@ export function Main() {
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48" id="hero">
           <div className="container px-4 md:px-6 grid gap-8 lg:grid-cols-2 items-center">
             <div className="space-y-4 text-center lg:text-left">
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Hi, I'm Sh Raj</h1>
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl slide-top">Hi, I'm Sh Raj</h1>
               <p className="text-gray-500 md:text-xl dark:text-gray-400">
                 I'm a passionate full-stack developer with expertise in modern web technologies.
               </p>
@@ -120,8 +121,8 @@ export function Main() {
           className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-950"
           id="about">
           <div className="container px-4 md:px-6 grid gap-8">
-            <div className="space-y-4 text-center">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">About Me</h2>
+            <div className="space-y-4 text-center slide-top">
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl ">About Me</h2>
               <p
                 className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                 I'm a full-stack developer with a passion for building modern, responsive, and user-friendly web
